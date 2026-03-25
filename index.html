@@ -1,10 +1,379 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
-  <title>Meine erste Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wir suchen eine/n Auszubildende/n!</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+      color: #333;
+    }
+ 
+
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      width: 150px;
+      margin: 0 auto 20px;
+      display: block;
+      border-radius: 10px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .job-section {
+      background-color: #e8f4f8;
+      border-left: 5px solid #003366;
+      padding: 25px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    .job-section h2 {
+      color: #003366;
+      margin-bottom: 15px;
+      font-size: 2em;
+    }
+
+    .job-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .job-detail {
+      padding: 15px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    }
+
+    .job-detail strong {
+      color: #003366;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-section {
+      background-color: #f9f9f9;
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .form-section h3 {
+      color: #003366;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    form input,
+    form textarea,
+    form select {
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: Arial, sans-serif;
+      font-size: 1em;
+    }
+
+    form input:focus,
+    form textarea:focus,
+    form select:focus {
+      outline: none;
+      border-color: #003366;
+      box-shadow: 0 0 5px rgba(0,51,102,0.3);
+    }
+
+    form textarea {
+      grid-column: 1 / -1;
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-full {
+      grid-column: 1 / -1;
+    }
+
+    button {
+      grid-column: 1 / -1;
+      padding: 15px;
+      background-color: #003366;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #002244;
+    }
+
+    .requirements {
+      list-style: none;
+      margin: 20px 0;
+    }
+
+    .requirements li {
+      padding: 10px;
+      margin: 8px 0;
+      background-color: white;
+      border-left: 3px solid #003366;
+      padding-left: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9em;
+      color: #666;
+      background-color: #f0f0f0;
+      margin-top: 40px;
+    }
+
+    .success-message {
+      display: none;
+      background-color: #d4edda;
+      border: 1px solid #c3e6cb;
+      color: #155724;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      grid-column: 1 / -1;
+    }
+
+    @media (max-width: 768px) {
+      .job-details {
+        grid-template-columns: 1fr;
+      }
+
+      form {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 1.8em;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Hallo Nikola 👋</h1>
-  <p>Meine Website ist online 🎉</p>
+
+<header>
+  <img src="logo.png" class="logo" alt="Logo der Urologischen Praxis">
+  <h1>Wir suchen dich!</h1>
+  <p>Urologische Praxis Dr. Maier</p>
+</header>
+
+<div class="container">
+
+  <!-- STELLENANZEIGE SECTION -->
+  <div class="job-section">
+    <h2>Ausbildung zur/zum medizinischen Fachangestellten (w/m/d)</h2>
+      <p style="font-size: 1.1em; margin-bottom: 20px; text-align: justify; hyphens: auto;">
+    Du willst einen Beruf lernen, der Sinn macht, spannend ist und bei dem kein Tag wie der andere ist? Dann starte deine Ausbildung zur/zum Medizinischen Fachangestellten (MFA) in unserer Praxis.
+    </p>
+  </div>
+
+  <!-- STELLENBESCHREIBUNG -->
+  <div class="card">
+    <img src="arzt.jpg" alt="Team der Praxis">
+    <h3>Medizinische Fachangestellte (m/w/d)</h3>
+    <p style="font-size: 1.1em; margin-bottom: 20px; text-align: justify;hyphens: auto;">
+  Bei uns bist du nicht "nur Azubi" sondern von Anfang an Teil unseres fröhlichen Teams, das dich unterstützt, fördert und ernst nimmt. In unserer Praxis erwartet dich eine abwechslungsreiche Ausbildung in einem spannenden Fachgebiet mit vielen diagnostischen und therapeutischen Möglichkeiten.
+      <br>
+    <br>
+Bei uns lernst du nicht nur Blut abnehmen und Assistenz bei Operationen und Zystoskopien sondern erlernst hochqualifizierte Labortätigkeiten. In unserem mikrobiologischen Labor erhält du tiefe Einblicke in die Bakterienbestimmung und das Erstellen von Antibiogrammen, die für die weitere Therapie der Patienten wichtig sind. Diese umfangreiche Ausbildung ist nicht in vielen Praxen selbstverständlich und macht deine dreijährige Ausbildung besonders vielseitig.
+    <br>
+    <br>
+    Eine Verkürzung der Ausbildung um 6 Monate ist bei Vorliegen der Hochschulreife möglich. 
+    </p>
+  
+    
+    <h4 style="color: #003366; margin-top: 20px;">Du bringst mit:</h4>
+    <ul class="requirements">
+      <li>✓ Interesse an Medizin und Gesundheit </li>
+<li>✓ Freude am Umgang mit Menschen
+  </li>
+<li>✓ Zuverlässigkeit und Teamgeist</li>
+<li>✓ Mindestens einen qualifizierten Schulabschluss</li>
+  <li>✓ Sehr gute Deutschkenntnisse in Wort und Schrift (C1-Niveau) für die sichere Kommunikation mit unseren Patienten</li>
+      
+     </ul>  
+
+    <h4 style="color: #003366; margin-top: 20px;">Das erwartet dich:</h4>
+    <ul class="requirements">
+      <li>✓ Eine strukturierte und abwechslungsreiche Ausbildung </li>
+
+  <li>✓ Hilfe beim Führen des Ausbildungsnachweises</li>   
+    <li>✓ Ein freundliches und unterstützendes Team </li>
+ <li>✓ geregelte Arbeitszeiten, keine Überstunden, kein Wochenenddienst </li>     
+<li>✓ Ausbildungsgehalt + vermögenswirksame Leistungen + Karlsruhe- Gutschein im Wert von 40€/Monat + ScoolCard </li>
+  
+    </ul>
+
+<h2>Bewirb dich jetzt ganz unkompliziert</h2>      
+      <p> 
+Schreib uns gerne eine Mail an <strong>info@dr-maier.de</strong>  oder nutze einfach das Kontaktformular am Ende der Seite. Insbesondere interessieren wir uns für einen Lebenslauf sowie dein letztes Zeugnis.
+
+        <br> <br>
+ Wenn du dir noch unsicher bist, ob die Ausbildung zu dir passt, melde dich ebenfalls! 
+Wir beraten dich unverbindlich und bieten dir auch die Möglichkeit eines Schnuppertages. <br> 
+        dann kannst du dich direkt mit einer ehemaligen Auszubildenden austauschen, 
+die ihre Ausbildung bei uns erfolgreich abgeschlossen hat und heute als Vollzeitkraft fest zu unserem Team gehört. 
+Sie berichtet dir ehrlich vom Ausbildungsalltag und beantwortet dir gerne auch die Fragen, die man sonst vielleicht nicht so gerne stellt.
+
+<br><br>
+
+Wir freuen uns darauf, dich kennenzulernen! </p>
+  </div>
+
+    <div class="job-details">
+      <div class="job-detail">
+        <strong>📍 In der Karlsruher Innenstadt</strong>
+        Karlstraße 29, 76133 Karlsruhe
+      </div>
+
+      <div class="job-detail">
+        <strong>📅 Start: Ab sofort</strong>
+        
+      </div>
+      <div class="job-detail">
+        <strong>💰 Das Gehalt ist tariflich geregelt und beträgt </strong>
+        1. Jahr: 1.050 €/Monat <br>
+        2. Jahr: 1.150 €/Monat <br>
+        3. Jahr: 1.250 €/Monat
+      </div>
+    </div>
+
+  
+
+  <!-- KONTAKTFORMULAR SECTION -->
+ <div class="form-section">
+  <h3>Kontaktformular</h3>
+
+  <p style="margin-bottom: 20px;">
+    Bitte fülle die Kontaktfelder aus. Über ein angehängtes Zeugnis, Lebenslauf und Motivationsschreiben freuen wir uns. Falls du diese gerade nicht zur Hand hast, kannst du dich auch ganz unkompliziert ohne Unterlagen bei uns melden – alles Weitere besprechen wir gerne gemeinsam.
+  </p>
+
+  <form action="https://formspree.io/f/xdapoeqo" method="POST" enctype="multipart/form-data">
+    <input type="text" name="vorname" placeholder="Vorname *" required>
+    <input type="text" name="nachname" placeholder="Nachname *" required>
+    <input type="email" name="email" placeholder="E-Mail-Adresse *" required>
+    <input type="tel" name="telefon" placeholder="Telefonnummer *" required>
+
+    <label class="form-full" style="margin-bottom: 5px;">
+      Datei 1 hochladen (optional)
+    </label>
+    <input type="file" name="datei1" class="form-full">
+
+    <label class="form-full" style="margin-bottom: 5px;">
+      Datei 2 hochladen (optional)
+    </label>
+    <input type="file" name="datei2" class="form-full">
+
+    <label class="form-full" style="margin-bottom: 5px;">
+      Datei 3 hochladen (optional)
+    </label>
+    <input type="file" name="datei3" class="form-full">
+
+<label class="form-full" style="margin-top: 10px;">
+  Deine Nachricht oder Fragen an uns
+</label>
+
+<textarea
+  class="form-full"
+  name="nachricht"
+  placeholder="Erzähl uns gerne kurz etwas über dich."
+  required
+></textarea>
+
+   
+
+    <label class="form-full" style="display: flex; align-items: center; padding: 0;">
+      <input type="checkbox" required style="width: auto; margin-right: 10px;">
+      Ich akzeptiere die Datenschutzerklärung und stimme einer Kontaktaufnahme zu. *
+    </label>
+
+    <button type="submit">Senden</button>
+  </form>
+</div>
+
+  <!-- ZUSÄTZLICHE INFO SECTION -->
+  <div class="card" style="margin-top: 40px;">
+    <img src="diagnostik.jpg" alt="Diagnostik-Bereich der Praxis">
+    <h3>Die Urologische Praxis Dr. Nils Maier</h3>
+    <p>
+      Unsere moderne Praxis verfügt über hochmoderne medizinische Technologie und ein erfahrenes Team. 
+      Wir bieten unseren Patienten umfassende urologische Versorgung in angenehmer Atmosphäre. 
+      Werden Sie Teil unseres erfolgreichen Teams!
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Urologische Praxis Dr. Nils Maier | Karlsruhe</p>
+  <p>Kontakt: <strong>info@dr-maier.de</strong> | Tel: <strong> 0721 27103 </strong></p>
+</footer>
+
+
+
 </body>
 </html>
